@@ -198,7 +198,7 @@
             margin-left: auto;
         }
 
-        /* Results Styles */
+        
         .results-container {
             display: flex;
             justify-content: center;
@@ -243,7 +243,7 @@
     </div>
 
     <div id="question-info">
-        <div id="question-format">Ques: 1/10</div>
+        <div id="question-format">Ques: 1/20</div>
         <div class="actions">
             <button class="report-btn" onclick="reportIssue()">Report</button>
             <button class="marks-btn green" onclick="updateMarks('+1')">+1</button>
@@ -314,7 +314,7 @@
             { text: "20. Which of the following is not an error in JavaScript?", options: ["Missing of Bracket", "Division by zero", "Syntax error", "Missing of semicolons"] }
         ];
 
-        let score = 0; // Initialize score
+        let score = 0; 
 
         function loadQuestion(number) {
             currentQuestion = number;
@@ -333,7 +333,7 @@
                 visitedQuestions.push(currentQuestion);
             }
 
-            document.getElementById("question-format").innerText = `Ques: ${currentQuestion}/10`;
+            document.getElementById("question-format").innerText = `Ques: ${currentQuestion}/20`;
         }
 
         function clearResponse() {
@@ -344,35 +344,36 @@
         }
 
         function saveAndNext() {
-            const options = document.getElementsByName("option");
-            let isAttempted = false;
-            options.forEach(option => {
-                if (option.checked) {
-                    isAttempted = true;
-                }
-            });
-
-            const currentButton = document.getElementById(`q${currentQuestion}-btn`);
-            if (isAttempted) {
-                currentButton.classList.remove('blue');
-                currentButton.classList.add('green');
-                score++; // Increment score for attempted question
-            } else {
-                currentButton.classList.add('blue');
-            }
-
-            if (currentQuestion < 10) {
-                loadQuestion(currentQuestion + 1);
-            } else {
-                submitAssessment();
-            }
+    const options = document.getElementsByName("option");
+    let isAttempted = false;
+    options.forEach(option => {
+        if (option.checked) {
+            isAttempted = true;
         }
+    });
+
+    const currentButton = document.getElementById(`q${currentQuestion}-btn`);
+    if (isAttempted) {
+        currentButton.classList.remove('blue');
+        currentButton.classList.add('green');
+        score++; // Increment score for attempted question
+    } else {
+        currentButton.classList.add('blue');
+    }
+
+    if (currentQuestion < questions.length) {
+        loadQuestion(currentQuestion + 1);
+    } else {
+        loadQuestion(1);
+    }
+}
+
 
         function submitAssessment() {
             const totalQuestions = questions.length;
             const percentage = (score / totalQuestions) * 100;
 
-            // Open new tab with results
+            
             const resultWindow = window.open("", "Results", "width=600,height=400");
             resultWindow.document.write("<html><head><title>Test Results</title><style>");
             resultWindow.document.write(`
@@ -412,7 +413,7 @@
             resultWindow.document.close();
         }
 
-        // Timer functionality
+        
         let timer = 1800;
         const intervalId = setInterval(() => {
             if (timer > 0) {
@@ -422,12 +423,12 @@
                 const seconds = timer % 60;
                 document.getElementById('timer').innerText = `Time Left: ${hours}:${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
             } else {
-                submitAssessment(); // Automatically submit when time's up
+                submitAssessment(); 
                 clearInterval(intervalId);
             }
         }, 1000);
 
-        // Fullscreen functionality
+        
         function enterFullScreen() {
             const elem = document.documentElement;
             if (elem.requestFullscreen) {
@@ -441,17 +442,17 @@
             }
         }
 
-        // Start Technical MCQs functionality
+        
         function startTechnicalMCQs() {
             alert("Starting Technical MCQs!");
         }
 
-        // Report button functionality
+        
         function reportIssue() {
             alert("Reporting issue!");
         }
 
-        // Update marks functionality
+        
         function updateMarks(mark) {
             alert(`Marks updated: ${mark}`);
         }
