@@ -129,7 +129,7 @@
             margin-right: 10px;
         }
 
-        /* Box Colors for Visual Representation */
+        
         .status-box {
             display: inline-block;
             width: 20px;
@@ -169,7 +169,7 @@
                 <h2>Important Instructions</h2>
             </div>
 
-            <!-- Existing Instructions -->
+            
             <div class="instruction-item">
                 <p><strong>Number of Questions:</strong> The test consists of 10 multiple-choice questions (MCQs).</p>
             </div>
@@ -230,7 +230,7 @@
                 </div>
             </div>
 
-            <!-- New Added Instructions -->
+            
             <div class="instruction-item">
                 <p><strong>Accepting Terms and Conditions:</strong></p>
                 <ul>
@@ -260,25 +260,25 @@
     </div>
 
     <script>
-        // Get references to elements
+        
         var checkbox = document.getElementById("termsCheckbox");
         var startBtn = document.getElementById("startBtn");
 
-        // Enable the start button when the checkbox is checked
+       
         checkbox.addEventListener("change", function() {
             if (this.checked) {
                 startBtn.classList.add("active");
-                startBtn.disabled = false; // Enable the button
+                startBtn.disabled = false; 
             } else {
                 startBtn.classList.remove("active");
-                startBtn.disabled = true;  // Disable the button
+                startBtn.disabled = true;  
             }
         });
 
-        // Redirect to the MCQ test page when the start button is clicked
+        
         startBtn.addEventListener("click", function() {
             if (checkbox.checked) {
-                window.location.href = "onlineAssessment.html";  // Replace with the URL of your questions page
+                window.location.href = "onlineAssessment.html";  
             }
         });
     </script>
