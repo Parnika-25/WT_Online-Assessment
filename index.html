@@ -20,17 +20,17 @@
             padding: 60px;
             border-radius: 15px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-            width: 450px;  /* Increased width */
+            width: 450px;  
         }
 
         h2 {
             text-align: center;
             color: #333;
-            font-size: 30px;  /* Increased font size */
+            font-size: 30px; 
         }
 
         label {
-            font-size: 18px;  /* Font size for labels */
+            font-size: 18px;  
             color: #333;
             display: block;
             margin-bottom: 8px;
@@ -39,29 +39,29 @@
         input[type="text"],
         input[type="password"] {
             width: 100%;
-            padding: 16px;  /* Increased padding for input fields */
-            margin: 15px 0 20px 0;  /* Adjusted margin for better spacing */
+            padding: 16px;  
+            margin: 15px 0 20px 0;  
             border: 1px solid #ccc;
             border-radius: 8px;
             box-sizing: border-box;
-            font-size: 18px;  /* Increased font size */
+            font-size: 18px;  
         }
 
         input[type="text"]::placeholder,
         input[type="password"]::placeholder {
             color: #999;
-            font-size: 16px;  /* Larger placeholder text */
+            font-size: 16px;  
         }
 
         .login-btn {
             width: 100%;
-            padding: 18px;  /* Larger padding for the button */
+            padding: 18px;  
             background-color: #4CAF50;
             color: white;
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            font-size: 20px;  /* Larger button text */
+            font-size: 20px;  
         }
 
         .login-btn:hover {
@@ -70,7 +70,7 @@
 
         .error-message {
             color: red;
-            font-size: 18px;  /* Larger error message size */
+            font-size: 18px;  
             text-align: center;
             margin-top: 15px;
         }
@@ -100,21 +100,16 @@
         var password = document.getElementById("password").value;
         var errorDiv = document.getElementById("error");
 
-        // Test password: replace this value with any valid password for testing
-        var validPassword = "test123";  // This is the correct password for validation
-
         if (regno === "" || password === "") {
             errorDiv.textContent = "Please fill in both fields.";
         } else if (!/^[a-zA-Z0-9]+$/.test(regno)) {
             errorDiv.textContent = "Registration Number must be alphanumeric.";
         } else if (password.length < 6) {
             errorDiv.textContent = "Password must be at least 6 characters long.";
-        } else if (password !== validPassword) {  // Validate against the correct password
-            errorDiv.textContent = "Invalid login. Please check your credentials.";
         } else {
             errorDiv.textContent = "";
             // Redirect to the instructions page
-            window.location.href = "instructions.html";  // Redirect to the instructions page
+            window.location.href = "question.html";  // Redirect to the instructions page
         }
     });
 </script>
